@@ -2,11 +2,11 @@ import React from 'react'
 import Granchild from './Granchild'
 
 
-const Child = () => {
+const Child = () => {    
   return (
     <>
         <h2>I am the Child component</h2>    
-        <Granchild />
+        <Granchild />          
     </>
   )
 }
