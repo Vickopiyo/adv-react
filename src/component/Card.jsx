@@ -17,9 +17,9 @@ const style = {
 }      
 
 
-Card.propTypes = {  
-    cardColor : PropTypes.string.isRequired   
-}  
+// Card.propTypes = {  
+//     cardColor : PropTypes.string.isRequired   
+// }  
         
 Card.defaultProps = {  
     cardColor: "blue"
