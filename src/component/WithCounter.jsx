@@ -11,12 +11,15 @@ const WithCounter = (OriginalComponent) => {
     function handleSubtract(){
       setCount(count => count - 1 )
      }  
-      
+     
+    //  New component returns component passed in as argument with extra functionalities through props 
     return <OriginalComponent  handleAdd={handleAdd}  handleSubtract= {handleSubtract}  count={count} /> 
   };   
-
 
   return  NewComponent;
 };
 
-export default WithCounter;
+export default WithCounter;       
+
+
+
