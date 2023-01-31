@@ -11,6 +11,6 @@ const ClickCounter = ({handleAdd,handleSubtract, count}) => {
 
     </div>
   )
-}
+}                
 
 export default WithCounter(ClickCounter)    
