@@ -6,6 +6,6 @@ const ChildrenElementComponent = (props) => {
      {props.children}     
     </div>
   )
-}
+}                           
 
 export default ChildrenElementComponent

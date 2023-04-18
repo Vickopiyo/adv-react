@@ -1,7 +1,7 @@
 import React   from 'react'
 import WithCounter from './WithCounter'
 
-const ClickCounter = ({handleAdd,handleSubtract, count}) => {  
+const ClickCounter = ({handleAdd,handleSubtract, count}) => {             
           
   return (
     <div>

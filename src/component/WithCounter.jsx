@@ -1,25 +1,24 @@
-import React, {useState} from "react";
+import React, { useState } from "react"
 
-const WithCounter = (OriginalComponent) => {   
+const WithCounter = (OriginalComp) => {   
+         
+	const NewComp = (props) => {   
+		const [count, setCount] = useState(0)
 
-  const NewComponent = () => {        
-    const [count, setCount] = useState(0)        
-    function handleAdd(){ 
-        setCount(count => count + 1 )
-    }         
+		function handleAdd() {
+			setCount((count) => count + 1)       
+		}
+		function handleSubtract() {          
+			setCount((count) => count - 1)
+		}       
 
-    function handleSubtract(){
-      setCount(count => count - 1 )
-     }  
-     
-    //  New component returns component passed in as argument with extra functionalities through props 
-    return <OriginalComponent  handleAdd={handleAdd}  handleSubtract= {handleSubtract}  count={count} /> 
-  };   
+		return <OriginalComp  count={count}  handleAdd={handleAdd}  handleSubtract={handleSubtract} />       
 
-  return  NewComponent;
-};
-
-export default WithCounter;       
-
-
-
+	}           
+                                          
+	return NewComp       
+          
+}               
+                  
+export default WithCounter
+              

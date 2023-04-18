@@ -1,41 +1,57 @@
-// import Child  from "./component/Child" 
-// import Card from "./component/Card"  
-// import ChildrenElementComponent from "./component/ChildrenElementComponent"
-import ClickCounter from "./component/ClickCounter"
-import HoverCounter from "./component/HoverCounter"
+// import ClickCounter from "./component/ClickCounter"
+// import HoverCounter from "./component/HoverCounter"
+// import Section from "./component/Section"
+// import Heading from "./component/Heading"
 
-function App() {     
+import { useEffect, useState,useRef } from "react"     
+import useWordGame from "./hooks/useWordGame"
 
-  // Always Render Components with FRAGMENT TO AVOID  Convoluting your App 
-  return (     
-    <div className="App">    
-      {/* <h1>I am the Parent Component</h1>                 
-      <Child />      
-        {/*1st Card instance output white bg but warning in console of the type of prop supplied to it   */}
-      {/* <Card   cardColor= {45}   />   */}
-             {/*2nd card render with blue color specified in the defaultProps in card component  */}
-      {/* <Card       />     
-      <Card   cardColor= "yellow"/>            */}
+function App() {           
+      
+	const {
+		inputRef,
+		handleChange,
+		startClock,
+		text,
+		timeRemaining,   
+		isTimeRunning,
+		wordCount,
+	} = useWordGame(5) 
+             
 
-       {/* Component can have elements too which can be accessed as props.children.*/}  
+	return (                      
+		<div className="App">
+			{/*use context example*/}
 
-       {/* <ChildrenElementComponent   >
-          <h1>I am an element in a component </h1>   
-       </ChildrenElementComponent>  
-                  
-       <ChildrenElementComponent>
-          <h1>I am an element in a same component</h1>   
-       </ChildrenElementComponent>     */}    
+			{/* <Section>         
+				<Heading>Title</Heading>
+				<Section level={2}>
+					<Heading>Heading 2</Heading>                  
+					<Section level={3}>
+						<Heading>Heading 3</Heading>
+						<Section level={4}>
+							<Heading>Heading 4 </Heading>
+						</Section>
+					</Section>
+				</Section>
+			</Section> */}
 
+			<h1>Test your typing Speed </h1>
+			<textarea onChange={handleChange}  value={text}        
+			                       
+			    ref={inputRef}        
+			    disabled={!isTimeRunning}
+			   
+			/>          
+			<h4>Time Remaining:{timeRemaining} </h4>
+			<button onClick={startClock}
+			disabled={isTimeRunning}   
 
-{/* How to implement HOC---ClickCounter and HoverCounter share same functionality of adding */}     
-{/* BASIC syntax   of HOC ---  const enhancedComponent =  higherOrderComponent(originalComponent) */}     
+			   
+			>Start</button>     
+			<h1>Word Count:{wordCount}</h1>                         
 
-    <ClickCounter />          
-    <HoverCounter /> 
-    </div>     
-  )
-}     
-export default App       
-    
- 
+		</div>
+	)       
+}   
+export default App

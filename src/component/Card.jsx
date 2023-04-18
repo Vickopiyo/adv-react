@@ -24,4 +24,4 @@ Card.defaultProps = {
     cardColor: "blue"
 }
 
-export default Card
+export default Card          
